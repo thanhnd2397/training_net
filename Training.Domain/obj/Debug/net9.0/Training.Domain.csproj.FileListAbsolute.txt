@@ -1,0 +1,11 @@
+D:\new project\training\Training.Domain\bin\Debug\net9.0\Training.Domain.deps.json
+D:\new project\training\Training.Domain\bin\Debug\net9.0\Training.Domain.dll
+D:\new project\training\Training.Domain\bin\Debug\net9.0\Training.Domain.pdb
+D:\new project\training\Training.Domain\obj\Debug\net9.0\Training.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\new project\training\Training.Domain\obj\Debug\net9.0\Training.Domain.AssemblyInfoInputs.cache
+D:\new project\training\Training.Domain\obj\Debug\net9.0\Training.Domain.AssemblyInfo.cs
+D:\new project\training\Training.Domain\obj\Debug\net9.0\Training.Domain.csproj.CoreCompileInputs.cache
+D:\new project\training\Training.Domain\obj\Debug\net9.0\Training.Domain.dll
+D:\new project\training\Training.Domain\obj\Debug\net9.0\refint\Training.Domain.dll
+D:\new project\training\Training.Domain\obj\Debug\net9.0\Training.Domain.pdb
+D:\new project\training\Training.Domain\obj\Debug\net9.0\ref\Training.Domain.dll
