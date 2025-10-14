@@ -19,6 +19,7 @@ namespace Training.Infrastructure
 
             services.AddLocalization(options => options.ResourcesPath = "Resources");
             services.AddScoped<IMessageService, MessageService>();
+            services.AddScoped<IJwtService, JwtService>();
 
             return services;
         }

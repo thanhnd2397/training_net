@@ -19,4 +19,10 @@
     <data name="MSG_E001" xml:space="preserve">
     <value>Tên đăng nhập hoặc mật khẩu không đúng.</value>
   </data>
+    <data name="ERR_AUTH_REQUIRED" xml:space="preserve">
+        <value>Thiếu token xác thực.</value>
+    </data>
+    <data name="ERR_AUTH_INVALID" xml:space="preserve">
+        <value>Token xác thực không hợp lệ.</value>
+    </data>
 </root>

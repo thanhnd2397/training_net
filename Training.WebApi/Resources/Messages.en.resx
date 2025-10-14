@@ -20,4 +20,10 @@
     <data name="MSG_E001" xml:space="preserve">
     <value>Invalid user ID or password.</value>
   </data>
+    <data name="ERR_AUTH_REQUIRED" xml:space="preserve">
+        <value>Authentication token is required.</value>
+    </data>
+    <data name="ERR_AUTH_INVALID" xml:space="preserve">
+        <value>Invalid authentication token.</value>
+    </data>
 </root>
