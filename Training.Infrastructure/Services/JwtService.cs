@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using Training.Application.Common;
+using Training.Application.IService;
 
 namespace Training.Infrastructure.Services;
 
@@ -22,7 +22,7 @@ public class JwtService : IJwtService
     /// <param name="userName">AdminEntity</param>
     /// <param name="userId">AdminEntity</param>
     /// <returns>Token</returns>
-    public string GenerateToken(string userId, string userName)
+    public string GenerateToken(string? userId, string userName)
     {
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]!));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
