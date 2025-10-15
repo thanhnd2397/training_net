@@ -1,15 +1,4 @@
-﻿using Training.Application.Common;
-using Training.Application.Common.Exceptions;
-using Training.Application.Common.Interfaces;
-using Training.Application.Common.Models;
-using Training.Application.Common.Utils;
-using Training.Application.Dtos.Request;
-using Training.Application.Dtos.Response;
-using Training.Application.IRepositories;
-using Training.Application.IService;
-using Training.Application.IUseCases;
-
-namespace Training.Application.UseCases;
+﻿namespace Training.Application.UseCases;
 
 public class LoginUseCase(IUserRepository userRepository, IJwtService jwtService, IMessageService messageService)
     : ILoginUseCase

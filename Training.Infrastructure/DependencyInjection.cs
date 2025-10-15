@@ -1,16 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Training.Application.Common.Interfaces;
-using Training.Application.IRepositories;
-using Training.Application.IService;
-using Training.Application.IUseCases;
-using Training.Application.UseCases;
-using Training.Infrastructure.Persistence;
-using Training.Infrastructure.Repositories;
-using Training.Infrastructure.Services;
-
-namespace Training.Infrastructure
+﻿namespace Training.Infrastructure
 {
     public static class DependencyInjection
     {

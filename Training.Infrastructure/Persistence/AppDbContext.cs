@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Training.Domain.Entities;
-
-namespace Training.Infrastructure.Persistence
+﻿namespace Training.Infrastructure.Persistence
 {
     public class AppDbContext : DbContext
     {

@@ -1,7 +1,4 @@
-﻿using FluentValidation;
-using Training.Application.Dtos.Request;
-
-namespace Training.WebApi.Validations;
+﻿namespace Training.WebApi.Validations;
 
 public class LoginRequestValidator : AbstractValidator<LoginRequest>
 {

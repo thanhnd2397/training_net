@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Training.Application.Common.Interfaces;
-
-namespace Training.WebApi.Extension
+﻿namespace Training.WebApi.Extension
 {
     public static class MvcBuilderExtensions
     {

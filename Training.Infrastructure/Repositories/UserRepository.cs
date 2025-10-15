@@ -1,9 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Training.Application.IRepositories;
-using Training.Domain.Entities;
-using Training.Infrastructure.Persistence;
-
-namespace Training.Infrastructure.Repositories;
+﻿namespace Training.Infrastructure.Repositories;
 
 public class UserRepository : IUserRepository
 {

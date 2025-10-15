@@ -1,0 +1,10 @@
+﻿global using Training.Application.Common;
+global using Training.Application.Common.Exceptions;
+global using Training.Application.Common.Models;
+global using Training.Application.Common.Utils;
+global using Training.Application.Dtos.Request;
+global using Training.Application.Dtos.Response;
+global using Training.Application.IRepositories;
+global using Training.Application.IService;
+global using Training.Application.IUseCases;
+global using Training.Domain.Entities;

@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-
-namespace Training.WebApi.Controllers.BaseController;
+﻿namespace Training.WebApi.Controllers.BaseController;
 
 /// <summary>
 /// Controller for setting the Mediator.

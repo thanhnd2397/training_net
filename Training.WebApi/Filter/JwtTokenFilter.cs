@@ -1,14 +1,4 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using Serilog;
-using Training.Application.Common;
-using Training.Application.Common.Interfaces;
-
-namespace Training.WebApi.Filter
+﻿namespace Training.WebApi.Filter
 {
     public class JwtTokenFilter
     {

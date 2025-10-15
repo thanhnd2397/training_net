@@ -1,9 +1,4 @@
-﻿using System.Net;
-using Serilog;
-using Training.Application.Common.Exceptions;
-using Training.Application.Common.Interfaces;
-
-namespace Training.WebApi.Filter;
+﻿namespace Training.WebApi.Filter;
 
 public class GlobalExceptionMiddleware
 {

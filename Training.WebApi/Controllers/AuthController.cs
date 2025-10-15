@@ -1,13 +1,4 @@
-﻿using FluentValidation;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Training.Application.Common.Exceptions;
-using Training.Application.Common.Models;
-using Training.Application.Dtos.Request;
-using Training.Application.IUseCases;
-using Training.WebApi.Controllers.BaseController;
-
-namespace Training.WebApi.Controllers;
+﻿namespace Training.WebApi.Controllers;
 
 public class AuthController(ILoginUseCase loginUseCase) : ApiBaseController
 {

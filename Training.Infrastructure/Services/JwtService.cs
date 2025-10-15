@@ -1,11 +1,4 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using Training.Application.IService;
-
-namespace Training.Infrastructure.Services;
+﻿namespace Training.Infrastructure.Services;
 
 public class JwtService : IJwtService
 {

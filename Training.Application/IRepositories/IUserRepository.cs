@@ -1,6 +1,4 @@
-﻿using Training.Domain.Entities;
-
-namespace Training.Application.IRepositories;
+﻿namespace Training.Application.IRepositories;
 
 public interface IUserRepository
 {

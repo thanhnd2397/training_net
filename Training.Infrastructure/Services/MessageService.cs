@@ -1,8 +1,4 @@
-﻿using Microsoft.Extensions.Localization;
-using Training.Application.Common;
-using Training.Application.Common.Interfaces;
-
-namespace Training.Infrastructure.Services;
+﻿namespace Training.Infrastructure.Services;
 
     public class MessageService : IMessageService
     {

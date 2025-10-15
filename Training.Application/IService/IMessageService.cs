@@ -1,4 +1,4 @@
-﻿namespace Training.Application.Common.Interfaces;
+﻿namespace Training.Application.IService;
 
 public interface IMessageService
 {
