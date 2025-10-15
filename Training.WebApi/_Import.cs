@@ -1,0 +1,11 @@
+﻿global using FluentValidation;
+global using Training.Application.Dtos.Request;
+global using System.Net;
+global using Serilog;
+global using Training.Application.Common.Exceptions;
+global using Training.Application.IService;
+global using System.IdentityModel.Tokens.Jwt;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.AspNetCore.Authorization;
+global using Training.Application.IUseCases;
+global using Training.WebApi.Controllers.BaseController;

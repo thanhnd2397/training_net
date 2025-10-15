@@ -2,5 +2,5 @@
 
 public interface ILoginUseCase
 {
-    Task<BaseResponse<LoginResponse>?> ExecuteAsync(LoginRequest? request);
+    Task<BaseResponse<LoginResponse>?> LoginAsync(LoginRequest? request);
 }

@@ -3,7 +3,7 @@
 public class LoginUseCase(IUserRepository userRepository, IJwtService jwtService, IMessageService messageService)
     : ILoginUseCase
 {
-    public async Task<BaseResponse<LoginResponse>?> ExecuteAsync(LoginRequest? request)
+    public async Task<BaseResponse<LoginResponse>?> LoginAsync(LoginRequest? request)
     {
         if (request == null)
             throw new BadRequestException("InvalidRequest");

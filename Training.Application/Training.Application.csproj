@@ -13,10 +13,11 @@
     <ItemGroup>
       <PackageReference Include="BCrypt.Net-Next" Version="4.0.2" />
       <PackageReference Include="FluentValidation" Version="12.0.0" />
+      <PackageReference Include="MediatR" Version="13.0.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Common\Helpers\" />
+      <Folder Include="Dtos\Response\Command\" />
     </ItemGroup>
 
 </Project>

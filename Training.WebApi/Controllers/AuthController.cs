@@ -9,7 +9,7 @@ public class AuthController(ILoginUseCase loginUseCase) : ApiBaseController
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginRequest? request, [FromServices] IValidator<LoginRequest> validator)
     {
-        var result = await loginUseCase.ExecuteAsync(request);
+        var result = await loginUseCase.LoginAsync(request);
         return Ok(result);
     }
 }
