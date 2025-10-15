@@ -1,0 +1,108 @@
+# ===========================================
+# Rider & Visual Studio files
+# ===========================================
+.idea/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.DotSettings.user
+
+# ===========================================
+# Build & Publish outputs
+# ===========================================
+bin/
+obj/
+out/
+[Bb]uild/
+[Ll]og/
+artifacts/
+publish/
+tmp/
+temp/
+
+# ===========================================
+# Logs
+# ===========================================
+*.log
+logs/
+Logs/
+
+# ===========================================
+# OS-specific
+# ===========================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===========================================
+# Environment / Secrets
+# ===========================================
+.env
+.env.local
+.env.development
+.env.production
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+# ===========================================
+# NuGet / Dependencies
+# ===========================================
+*.nupkg
+*.snupkg
+*.nuspec
+*.dll
+*.exe
+*.pdb
+packages/
+.nuget/
+project.lock.json
+
+# ===========================================
+# Entity Framework
+# ===========================================
+Migrations/
+
+# ===========================================
+# Docker related
+# ===========================================
+docker-compose.override.yml
+docker-compose.local.yml
+Dockerfile.local
+.env.docker
+*.pid
+*.seed
+# Ignore Docker build context caches
+**/.docker/
+**/docker-volume/
+**/docker-data/
+
+# ===========================================
+# Frontend (if applicable)
+# ===========================================
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+
+# ===========================================
+# Testing / Coverage
+# ===========================================
+TestResult*/
+coverage/
+coverage.cobertura.xml
+lcov.info
+*.coverage
+*.coveragexml
+*.nunit.xml
+
+# ===========================================
+# Other temporary
+# ===========================================
+*.tmp
+*.bak
+*.swp
+*.swo
+~$*

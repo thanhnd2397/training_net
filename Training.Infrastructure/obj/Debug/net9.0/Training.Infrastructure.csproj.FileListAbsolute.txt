@@ -17,3 +17,4 @@ D:\new project\training\Training.Infrastructure\obj\Debug\net9.0\refint\Training
 D:\new project\training\Training.Infrastructure\obj\Debug\net9.0\Training.Infrastructure.pdb
 D:\new project\training\Training.Infrastructure\obj\Debug\net9.0\Training.Infrastructure.genruntimeconfig.cache
 D:\new project\training\Training.Infrastructure\obj\Debug\net9.0\ref\Training.Infrastructure.dll
+D:\new project\training\Training.Infrastructure\obj\Debug\net9.0\Training.Infrastructure.sourcelink.json

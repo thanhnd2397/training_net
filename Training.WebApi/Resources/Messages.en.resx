@@ -14,9 +14,6 @@
     </resheader>
 
     <!-- Example messages -->
-    <data name="MSG_S001" xml:space="preserve">
-    <value>Operation completed successfully.</value>
-  </data>
     <data name="MSG_E001" xml:space="preserve">
     <value>Invalid user ID or password.</value>
   </data>
@@ -25,5 +22,11 @@
     </data>
     <data name="ERR_AUTH_INVALID" xml:space="preserve">
         <value>Invalid authentication token.</value>
+    </data>
+    <data name="MSG_S001" xml:space="preserve">
+        <value>Login successful!</value>
+    </data>
+    <data name="ERR_INTERNAL_SERVER" xml:space="preserve">
+        <value>An unexpected error occurred.</value>
     </data>
 </root>

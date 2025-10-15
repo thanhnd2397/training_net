@@ -1,11 +1,16 @@
 using System.Globalization;
 using System.Text;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
+using Training.Application.Dtos.Request;
 using Training.Infrastructure;
 using Training.WebApi.Filter;
+using Training.WebApi.Extension;
+using Training.WebApi.Validations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,11 +30,6 @@ builder.Host.UseSerilog();
 // ====================================================
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 
-// Thêm localization cho Controllers
-builder.Services.AddControllers()
-    .AddViewLocalization()
-    .AddDataAnnotationsLocalization();
-
 var supportedCultures = new[]
 {
     new CultureInfo("en"),
@@ -40,8 +40,23 @@ var supportedCultures = new[]
 // ====================================================
 // 3️⃣ Add Infrastructure + JWT Authentication
 // ====================================================
-builder.Services.AddOpenApi();
+
+// 🟢 GỌI HÀM NÀY ĐỂ ĐĂNG KÝ CÁC SERVICE NHƯ IMessageService, ILoginUseCase,...
 builder.Services.AddInfrastructure(builder.Configuration);
+
+// ⚙️ FluentValidation + Controllers + Custom lỗi
+builder.Services.AddControllers()
+    .AddViewLocalization()
+    .AddDataAnnotationsLocalization()
+    .AddFluentValidation(fv =>
+    {
+        fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>();
+        fv.DisableDataAnnotationsValidation = true;
+    })
+    .AddCustomValidationResponse();
+
+// Đăng ký thủ công validator cho chắc chắn
+builder.Services.AddScoped<IValidator<LoginRequest>, LoginRequestValidator>();
 
 // 🔐 Cấu hình JWT
 var jwtSettings = builder.Configuration.GetSection("Jwt");
@@ -93,10 +108,15 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// 🧩 Thêm Authentication và Authorization vào pipeline
-app.UseMiddleware<JwtTokenFilter>();
+// 1️⃣ Exception handler nên bao ngoài toàn bộ pipeline
+app.UseMiddleware<GlobalExceptionMiddleware>();
+
+// 2️⃣ Authentication & Authorization nên trước các custom filter/token middleware
 app.UseAuthentication();
 app.UseAuthorization();
+
+// 3️⃣ Các middleware custom xử lý request (như JwtTokenFilter)
+app.UseMiddleware<JwtTokenFilter>();
 
 app.MapControllers();
 

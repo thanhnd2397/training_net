@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "t2yiB9OizVI=",
+  "dgSpecHash": "LZB+yxWQhbM=",
   "success": true,
   "projectFilePath": "D:\\new project\\training\\Training.Application\\Training.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\thanhnd\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
+    "C:\\Users\\thanhnd\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

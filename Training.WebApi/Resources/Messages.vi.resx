@@ -12,10 +12,6 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, ...</value>
     </resheader>
-
-    <data name="MSG_S001" xml:space="preserve">
-    <value>Thao tác thành công.</value>
-  </data>
     <data name="MSG_E001" xml:space="preserve">
     <value>Tên đăng nhập hoặc mật khẩu không đúng.</value>
   </data>
@@ -24,5 +20,11 @@
     </data>
     <data name="ERR_AUTH_INVALID" xml:space="preserve">
         <value>Token xác thực không hợp lệ.</value>
+    </data>
+    <data name="MSG_S001" xml:space="preserve">
+        <value>Đăng nhập thành công</value>
+    </data>
+    <data name="ERR_INTERNAL_SERVER" xml:space="preserve">
+        <value>Lỗi</value>
     </data>
 </root>
