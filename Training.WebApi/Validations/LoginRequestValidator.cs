@@ -6,7 +6,7 @@ public class LoginRequestValidator : AbstractValidator<LoginRequest>
     {
         RuleFor(x => x.Username)
             .NotEmpty()
-            .WithMessage("MSG_E001");
+            .WithMessage("MSG_E012");
 
         RuleFor(x => x.Password)
             .NotEmpty()

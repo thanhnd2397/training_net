@@ -13,7 +13,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, ...</value>
     </resheader>
 
-    <data name="MSG_S001" xml:space="preserve">
+    <data name="MSG_E002" xml:space="preserve">
     <value>操作が正常に完了しました。</value>
   </data>
     <data name="MSG_E001" xml:space="preserve">

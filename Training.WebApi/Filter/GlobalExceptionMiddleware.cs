@@ -38,25 +38,25 @@ public class GlobalExceptionMiddleware
             case UnauthorizedAccessException:
                 statusCode = (int)HttpStatusCode.Unauthorized;
                 errorCode = "ERR_AUTH_REQUIRED";
-                message = _messageService.GetMessage(errorCode) ?? "Unauthorized";
+                message = _messageService.GetMessage(errorCode);
                 break;
 
-            case BadRequestException notFoundEx:
+            case BadRequestException badRequestEx:
                 statusCode = (int)HttpStatusCode.BadRequest;
                 errorCode = "ERR_BAD_REQUEST";
-                message = _messageService.GetMessage(notFoundEx.Message) ?? notFoundEx.Message;
+                message = _messageService.GetMessage(badRequestEx.Message);
                 break;
             
-            case FluentValidation.ValidationException valEx:
+            case DuplicateException dupEx:
                 statusCode = (int)HttpStatusCode.BadRequest;
-                errorCode = "ERR_VALIDATION_FAILED";
-                message = "con cac";
+                errorCode = "ERR_DUPLICATE";
+                message = _messageService.GetMessage(dupEx.Message);
                 break;
             
             default:
                 statusCode = (int)HttpStatusCode.InternalServerError;
                 errorCode = "ERR_INTERNAL_SERVER";
-                message = _messageService.GetMessage(errorCode) ?? "Lỗi";
+                message = _messageService.GetMessage(errorCode);
                 break;
         }
 

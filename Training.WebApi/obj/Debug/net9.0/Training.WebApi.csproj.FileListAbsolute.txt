@@ -172,3 +172,4 @@ D:\new project\training\Training.WebApi\bin\Debug\net9.0\BCrypt.Net-Next.dll
 D:\new project\training\Training.WebApi\bin\Debug\net9.0\FluentValidation.dll
 D:\new project\training\Training.WebApi\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
 D:\new project\training\Training.WebApi\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\new project\training\Training.WebApi\bin\Debug\net9.0\AutoMapper.dll

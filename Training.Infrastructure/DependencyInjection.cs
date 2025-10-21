@@ -11,10 +11,10 @@
             );
             
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<ILoginUseCase, LoginUseCase>();
+            services.AddScoped<IJwtService, JwtService>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             
             services.AddLocalization(options => options.ResourcesPath = "Resources");
-            services.AddScoped<IJwtService, JwtService>();
             services.AddSingleton<IMessageService, MessageService>();
 
             return services;

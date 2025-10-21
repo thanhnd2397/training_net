@@ -1,14 +1,15 @@
 ﻿namespace Training.WebApi.Controllers;
 
-public class UserController : ApiBaseController
+public class UserController(IUserUseCase userUseCase) : ApiBaseController
 {
     /// <summary>
     /// Đăng ký người dùng
     /// </summary>
     [HttpPost]
-    public Task<IActionResult> CreateUser([FromBody] CreateUserRequest? request)
-    { 
-        
+    public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest? request)
+    {
+        var result = await userUseCase.CreateUser(request);
+        return Ok(result);
     }
     
 }

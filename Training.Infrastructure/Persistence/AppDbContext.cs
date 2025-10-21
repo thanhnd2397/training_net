@@ -31,7 +31,7 @@
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.LastName).HasMaxLength(100);
-                entity.Property(e => e.FullName).HasMaxLength(200);
+                entity.Property(e => e.FirstName).HasMaxLength(200);
                 entity.Property(e => e.Address).HasMaxLength(255);
                 entity.Property(e => e.Mail).HasMaxLength(100);
                 entity.Property(e => e.UserName).HasMaxLength(100);

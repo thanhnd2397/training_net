@@ -55,6 +55,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.*, )"
+            },
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.0.2, )"
@@ -62,10 +66,6 @@
             "FluentValidation": {
               "target": "Package",
               "version": "[12.0.0, )"
-            },
-            "MediatR": {
-              "target": "Package",
-              "version": "[13.0.0, )"
             }
           },
           "imports": [
@@ -326,10 +326,6 @@
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[11.3.1, )"
-            },
-            "MediatR.Extensions.Microsoft.DependencyInjection": {
-              "target": "Package",
-              "version": "[11.1.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",

@@ -13,18 +13,39 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, ...</value>
     </resheader>
     <data name="MSG_E001" xml:space="preserve">
-    <value>Tên đăng nhập hoặc mật khẩu không đúng.</value>
-  </data>
-    <data name="ERR_AUTH_REQUIRED" xml:space="preserve">
-        <value>Thiếu token xác thực.</value>
+        <value>{PropertyName} là bắt buộc.</value>
     </data>
-    <data name="ERR_AUTH_INVALID" xml:space="preserve">
-        <value>Token xác thực không hợp lệ.</value>
+    <data name="MSG_E002" xml:space="preserve">
+        <value>{PropertyName} không hợp lệ.</value>
     </data>
-    <data name="MSG_S001" xml:space="preserve">
-        <value>Đăng nhập thành công</value>
+    <data name="MSG_E003" xml:space="preserve">
+        <value>{PropertyName} phải có độ dài tối thiểu {MinLength} ký tự.</value>
     </data>
-    <data name="ERR_INTERNAL_SERVER" xml:space="preserve">
-        <value>Lỗi</value>
+    <data name="MSG_E004" xml:space="preserve">
+        <value>{PropertyName} không được vượt quá {MaxLength} ký tự.</value>
+    </data>
+    <data name="MSG_E005" xml:space="preserve">
+        <value>{PropertyName} phải nằm trong khoảng từ {MinValue} đến {MaxValue}</value>
+    </data>
+    <data name="MSG_E006" xml:space="preserve">
+        <value>{PropertyName} phải là địa chỉ email hợp lệ.</value>
+    </data>
+    <data name="MSG_E007" xml:space="preserve">
+        <value>{PropertyName} chỉ được chứa chữ và số.</value>
+    </data>
+    <data name="MSG_E008" xml:space="preserve">
+        <value>{PropertyName} không trùng khớp với {ComparisonProperty}.</value>
+    </data>
+    <data name="MSG_E009" xml:space="preserve">
+        <value>{PropertyName} phải có ít nhất một ký tự viết hoa, một ký tự viết thường và một số.</value>
+    </data>
+    <data name="MSG_E010" xml:space="preserve">
+        <value>Độ tuổi trong {PropertyName} phải lớn hơn hoặc bằng {MinValue}.</value>
+    </data>
+    <data name="MSG_E011" xml:space="preserve">
+        <value>{PropertyName} không được chứa ký tự đặc biệt.</value>
+    </data>
+    <data name="MSG_E012" xml:space="preserve">
+        <value>UserName là bắt buộc</value>
     </data>
 </root>

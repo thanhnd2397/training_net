@@ -61,7 +61,7 @@ namespace Training.Infrastructure.Migrations
                     b.Property<bool>("DeleteFlg")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<string>("FullName")
+                    b.Property<string>("FirstName")
                         .HasMaxLength(200)
                         .HasColumnType("varchar(200)");
 

@@ -2,5 +2,5 @@
 
 public interface IUserUseCase
 {
-    Task<BaseResponse<int>?> CreateUser(LoginRequest? request);
+    Task<BaseResponse<int>?> CreateUser(CreateUserRequest? request);
 }

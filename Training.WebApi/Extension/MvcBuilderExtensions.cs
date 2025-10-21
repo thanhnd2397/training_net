@@ -1,33 +1,42 @@
-﻿namespace Training.WebApi.Extension
+﻿namespace Training.WebApi.Extension;
+
+public static class MvcBuilderExtensions
 {
-    public static class MvcBuilderExtensions
+    public static IMvcBuilder AddCustomValidationResponse(this IMvcBuilder builder)
     {
-        public static IMvcBuilder AddCustomValidationResponse(this IMvcBuilder builder)
+        builder.ConfigureApiBehaviorOptions(options =>
         {
-            builder.ConfigureApiBehaviorOptions(options =>
+            options.InvalidModelStateResponseFactory = context =>
             {
-                options.InvalidModelStateResponseFactory = context =>
-                {
-                    var errorCode = context.ModelState
-                        .SelectMany(x => x.Value.Errors)
-                        .Select(e => e.ErrorMessage)
-                        .FirstOrDefault() ?? "ERR_VALIDATION_FAILED";
-
-                    var messageService = context.HttpContext.RequestServices.GetService<IMessageService>();
-                    var message = messageService?.GetMessage(errorCode) ?? "Validation failed.";
-
-                    var result = new
+                // Lấy lỗi đầu tiên
+                var firstError = context.ModelState
+                    .Where(x => x.Value?.Errors.Count > 0)
+                    .SelectMany(x => x.Value!.Errors.Select(e => new
                     {
-                        code = "VALIDATION_ERR",
-                        message,
-                        time = DateTime.UtcNow.ToString("o")
-                    };
+                        Field = x.Key,
+                        Code = e.ErrorMessage,
+                    }))
+                    .FirstOrDefault();
 
-                    return new BadRequestObjectResult(result);
-                };
-            });
+                var errorCode = firstError?.Code ?? "ERR_VALIDATION_FAILED";
+                var field = firstError?.Field ?? "";
 
-            return builder;
-        }
+                // Lấy message từ service nếu có
+                var messageService = context.HttpContext.RequestServices.GetService<IMessageService>();
+                var messageTemplate = messageService?.GetMessage(errorCode) ?? firstError?.Code ?? "Validation failed.";
+
+                // Replace tất cả placeholder {PropertyName}, {MinLength}, {MaxLength}, {MinValue}, {MaxValue}, ...
+                var message = messageTemplate.Replace("{PropertyName}", field.Split('.').LastOrDefault() ?? "");
+
+                return new BadRequestObjectResult(new
+                {
+                    code = "VALIDATION_ERR",
+                    message,
+                    time = DateTime.UtcNow.ToString("o")
+                });
+            };
+        });
+
+        return builder;
     }
 }

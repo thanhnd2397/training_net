@@ -1,22 +1,9 @@
-using System.Globalization;
-using System.Text;
-using FluentValidation;
-using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Localization;
-using Microsoft.IdentityModel.Tokens;
-using Serilog;
-using Training.Application.Dtos.Request;
-using Training.Infrastructure;
-using Training.WebApi.Filter;
-using Training.WebApi.Extension;
-using Training.WebApi.Validations;
+using Training.Application;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ====================================================
-// 1️⃣ Serilog cấu hình logging
-// ====================================================
+// 1️⃣ Serilog
 Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .Enrich.FromLogContext()
@@ -25,9 +12,7 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 
-// ====================================================
-// 2️⃣ i18n (Localization)
-// ====================================================
+// 2️⃣ Localization
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 
 var supportedCultures = new[]
@@ -37,28 +22,31 @@ var supportedCultures = new[]
     new CultureInfo("vi")
 };
 
-// ====================================================
-// 3️⃣ Add Infrastructure + JWT Authentication
-// ====================================================
-
-// 🟢 GỌI HÀM NÀY ĐỂ ĐĂNG KÝ CÁC SERVICE NHƯ IMessageService, ILoginUseCase,...
+// 3️⃣ Add Infrastructure + Application
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddApplication();
 
-// ⚙️ FluentValidation + Controllers + Custom lỗi
-builder.Services.AddControllers()
+// 4️⃣ FluentValidation + Controllers + Custom lỗi
+builder.Services.AddControllers(options =>
+    {
+        options.Filters.Add<CustomValidatorInterceptor>();
+    })
     .AddViewLocalization()
     .AddDataAnnotationsLocalization()
     .AddFluentValidation(fv =>
     {
+        // ✅ Đăng ký validator
+        fv.RegisterValidatorsFromAssemblyContaining<CreateUserRequestValidator>();
         fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>();
         fv.DisableDataAnnotationsValidation = true;
     })
     .AddCustomValidationResponse();
 
-// Đăng ký thủ công validator cho chắc chắn
+// Đăng ký validator thủ công (nếu cần)
 builder.Services.AddScoped<IValidator<LoginRequest>, LoginRequestValidator>();
+builder.Services.AddScoped<IValidator<CreateUserRequest>, CreateUserRequestValidator>();
 
-// 🔐 Cấu hình JWT
+// 5️⃣ JWT Authentication
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var key = Encoding.UTF8.GetBytes(jwtSettings["Key"] ?? throw new InvalidOperationException("JWT Key is missing"));
 
@@ -69,7 +57,7 @@ builder.Services.AddAuthentication(options =>
 })
 .AddJwtBearer(options =>
 {
-    options.RequireHttpsMetadata = false; // chỉ nên false khi dev
+    options.RequireHttpsMetadata = false;
     options.SaveToken = true;
     options.TokenValidationParameters = new TokenValidationParameters
     {
@@ -84,13 +72,12 @@ builder.Services.AddAuthentication(options =>
 });
 
 builder.Services.AddAuthorization();
+builder.Services.AddAutoMapper(typeof(ApplicationProfile));
 
-// ====================================================
-// 4️⃣ Build app
-// ====================================================
+// 6️⃣ Build app
 var app = builder.Build();
 
-// Cấu hình RequestLocalization
+// RequestLocalization
 app.UseRequestLocalization(new RequestLocalizationOptions
 {
     DefaultRequestCulture = new RequestCulture("en"),
@@ -98,31 +85,18 @@ app.UseRequestLocalization(new RequestLocalizationOptions
     SupportedUICultures = supportedCultures
 });
 
-// ====================================================
-// 5️⃣ Configure HTTP request pipeline
-// ====================================================
+// 7️⃣ Pipeline
 if (app.Environment.IsDevelopment())
-{
     app.MapOpenApi();
-}
 
 app.UseHttpsRedirection();
-
-// 1️⃣ Exception handler nên bao ngoài toàn bộ pipeline
 app.UseMiddleware<GlobalExceptionMiddleware>();
-
-// 2️⃣ Authentication & Authorization nên trước các custom filter/token middleware
 app.UseAuthentication();
 app.UseAuthorization();
-
-// 3️⃣ Các middleware custom xử lý request (như JwtTokenFilter)
 app.UseMiddleware<JwtTokenFilter>();
-
 app.MapControllers();
 
-// ====================================================
-// 6️⃣ Khởi động ứng dụng + log startup error
-// ====================================================
+// 8️⃣ Run
 try
 {
     Log.Information("Starting up the application...");
